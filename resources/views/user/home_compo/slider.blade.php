@@ -1,38 +1,17 @@
 <style>
-/*Home Two | Slider Background Image*/
-.bg-4 {
-	background-image: url({{ asset('user/images/slider/4.jpg') }});
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 475px;
-	width: 100%;
-}
-.bg-5 {
-	background-image: url({{ asset('user/images/slider/5.jpg') }});
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 475px;
-	width: 100%;
-}
-.bg-6 {
-	background-image: url({{ asset('user/images/slider/7.jpg') }});
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 475px;
-	width: 100%;
-}
-/* .bg-5 {
-	background-image: url({{ asset('user/images/images/slider/5.jpg') }});
-}
-.bg-6 {
-	background-image: url({{ asset('user/images/images/slider/6.jpg') }});
-} */
-
-
-
+    .bg-4{
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 150px;
+        min-height: 475px;
+        width: 100%;
+        height: 300px;
+    }
+    /* .owl-carousel .owl-item img {
+    display: block;
+    width: 440px;
+    margin-left: 390px;
+    } */
 </style>
 <div class="slider-with-banner">
     <div class="container">
@@ -82,45 +61,27 @@
                 <div class="col-lg-9">
                     <div class="slider-area pt-sm-30 pt-xs-30">
                         <div class="slider-active owl-carousel">
-                            <!-- Begin Single Slide Area -->
+
+                            @if (!empty($slide_product) && $slide_product->count() > 0)
+                            @foreach ($slide_product as $key=>$row)
+
                             <div class="single-slide align-center-left animation-style-02 bg-4">
+                                <img src="{{ asset("storage/".$row->thumbnail) }}" alt="">
                                 <div class="slider-progress"></div>
                                 <div class="slider-content">
-                                    <h5>Sale Offer <span>-20% Off</span> This Week</h5>
-                                    <h2>Chamcham Galaxy S9 | S9+</h2>
-                                    <h3>Starting at <span>$589.00</span></h3>
+                                    <h5>Sale Offer <span>-20% Off</span> This Week</h5> <span id="slide_img" data-img="{{ $row->thumbnail }}"></span>
+                                    <h2>{{ $row->p_title }}</h2>
+                                    <h3>Discount price at <span>{{ $footer->default_currency }} {{ number_format($row->p_discount_price,0,'',',') }}</span></h3>
                                     <div class="default-btn slide-btn">
-                                        <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
+                                        <a class="links" href="{{ route('view.product',$row->p_slug) }}">Shopping Now</a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Single Slide Area End Here -->
+                            @endforeach
+                            @endif
                             <!-- Begin Single Slide Area -->
-                            <div class="single-slide align-center-left animation-style-01 bg-5">
-                                <div class="slider-progress"></div>
-                                <div class="slider-content">
-                                    <h5>Sale Offer <span>Black Friday</span> This Week</h5>
-                                    <h2>Work Desk Surface Studio 2018</h2>
-                                    <h3>Starting at <span>$1599.00</span></h3>
-                                    <div class="default-btn slide-btn">
-                                        <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Slide Area End Here -->
-                            <!-- Begin Single Slide Area -->
-                            <div class="single-slide align-center-left animation-style-02 bg-6">
-                                <div class="slider-progress"></div>
-                                <div class="slider-content">
-                                    <h5>Sale Offer <span>-10% Off</span> This Week</h5>
-                                    <h2>Phantom 4 Pro+ Obsidian</h2>
-                                    <h3>Starting at <span>$809.00</span></h3>
-                                    <div class="default-btn slide-btn">
-                                        <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Slide Area End Here -->
+
+
                         </div>
                     </div>
                 </div>

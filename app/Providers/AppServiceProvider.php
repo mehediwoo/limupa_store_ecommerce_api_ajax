@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use App\Models\footer;
+use App\Models\category;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +24,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $footer = footer::first();
+        $all_category = category::latest()->get();
         View::share([
+            'all_category'=>$all_category,
             'footer'=>$footer,
         ]);
 

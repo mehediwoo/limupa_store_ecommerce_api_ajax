@@ -42,6 +42,8 @@
     <link rel="stylesheet" href="{{ asset('user/css/responsive.css') }}">
     <!-- Modernizr js -->
     <script src="{{ asset('user/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/toastr/toastr.css') }}" >
     @yield('css')
 </head>
 <body>
@@ -128,6 +130,8 @@
         <script src="{{ asset('user/js/scrollUp.min.js') }}"></script>
         <!-- Main/Activator js -->
         <script src="{{ asset('user/js/main.js') }}"></script>
+        <!-- Toast message js file-->
+        <script src="{{ asset('admin/toastr/toastr.min.js') }}"></script>
         @yield('script')
         <script>
             $(document).on('ready',function(){
@@ -147,11 +151,17 @@
                 $(document).on('click','#addToCart', function(){
                     event.preventDefault();
                     let product_id = $(this).attr('pro_id');
+                    let quantity = $(this).attr('quantity');
+                    let price = $(this).attr('price');
                     $.ajax({
                         url:"{{ route('AddToCart') }}",
-                        data:{product_id:product_id},
+                        data:{product_id:product_id,quantity:quantity,price:price},
                         success:function(data){
-                            loadCart();
+                            if (data==true) {
+                                toastr.success('Cart added successfully');
+                                loadCart();
+                            }
+
                         }
                     });
                 });

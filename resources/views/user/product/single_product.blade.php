@@ -85,7 +85,7 @@
 
 
                         <div class="single-add-to-cart">
-                            <form action="#" class="cart-quantity">
+                            <form action="" class="cart-quantity">
                                 <div class="color">
                                     <div class="form-group">
                                         <label for="">Size</label><br>
@@ -227,7 +227,7 @@
                                         <div class="modal-inner-area row">
                                             <div class="col-lg-6">
                                                <div class="li-review-product">
-                                                   <img src="images/product/large-size/3.jpg" alt="Li's Product">
+                                                   <img src="{{ asset('user/images/product/large-size/3.jpg') }}" alt="Li's Product">
                                                    <div class="li-review-product-desc">
                                                        <p class="li-product-name">Today is a good day Framed poster</p>
                                                        <p>
@@ -314,7 +314,7 @@
                             <!-- single-product-wrap start -->
                             <div class="single-product-wrap">
                                 <div class="product-image">
-                                    <a href="single-product.html">
+                                    <a href="{{ route('view.product',$row->p_slug) }}">
                                         <img src="{{ asset('storage/'.$row->thumbnail) }}" alt="Li's Product Image">
                                     </a>
                                     @if ($row->created_at->gte(now()->subDays(10)))

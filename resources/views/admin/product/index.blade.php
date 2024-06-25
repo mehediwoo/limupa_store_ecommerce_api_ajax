@@ -256,6 +256,7 @@
             let hot_deal = $(this).attr('hot_deal');
             let today_deal = $(this).attr('today_deal');
             let flash_deal = $(this).attr('flash_deal');
+            let show_on_slider = $(this).attr('show_on_slider');
             let treandy = $(this).attr('treandy');
 
             $('#p_id').val(id);
@@ -281,7 +282,17 @@
             $('#short_desc').val(short_desc);
             $('#summernote2').summernote('code',desc);
             let mainThumb = "{{ asset('storage') }}/"+thumbnail;
-            $('#mainThumb').attr('src',mainThumb);
+            // Dropify image view
+            var drEvent = $('#product_image').dropify(
+                {
+                    defaultFile: mainThumb
+                });
+                drEvent = drEvent.data('dropify');
+                drEvent.resetPreview();
+                drEvent.clearElement();
+                drEvent.settings.defaultFile = mainThumb;
+                drEvent.destroy();
+                drEvent.init();
 
             let data =multipleImg.split(',');
             $('.allMultiIMg').empty();
@@ -292,17 +303,22 @@
             // checkbox unchack
             $("#p_feature").prop("checked", false)
             $("#hot_deal").prop("checked", false)
+            $("#show_on_slider").prop("checked", false)
             if (feature =='on') {
                 $("#p_feature").prop("checked", true)
             }
             if(hot_deal =='on'){
                 $("#hot_deal").prop("checked", true)
             }
+            if(show_on_slider =='on'){
+                $("#show_on_slider").prop("checked", true)
+            }
 
             $('#editModal').modal('show');
             $('#p_tags').show();
             $('#size').show();
             $('#color').show();
+
         });
         // update product
         $(document).on('submit','#updateForm',function(){

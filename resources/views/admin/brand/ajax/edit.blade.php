@@ -19,9 +19,7 @@
 
               </div>
 
-              <div class="form-group mt-3">
-                  <input type="image" src="" id="editBlogo" width="80" height="40">
-              </div>
+
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

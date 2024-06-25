@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\CurrencyController;
 
 // Admin Route
 
-Route::prefix('admins/')->group(function(){
+Route::prefix('admin/')->group(function(){
 
     // Dashboard Route
     Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
@@ -75,11 +75,11 @@ Route::prefix('admins/')->group(function(){
         Route::post('setting/social',[FooterController::class,'social'])->name('social.update');
         Route::post('setting/banner',[FooterController::class,'banner'])->name('banner.update');
         //currency
-    Route::get('setting/currency',[CurrencyController::class,'index'])->name('currency.index');
-    Route::get('setting/currency/get',[CurrencyController::class,'getCurrency'])->name('currency.get');
-    Route::post('setting/currency-store',[CurrencyController::class,'store'])->name('currency.store');
-    Route::post('setting/currency-delete',[CurrencyController::class,'destroy'])->name('currency.delete');
-    Route::post('setting/currency-update',[CurrencyController::class,'update'])->name('currency.update');
+        Route::get('setting/currency',[CurrencyController::class,'index'])->name('currency.index');
+        Route::get('setting/currency/get',[CurrencyController::class,'getCurrency'])->name('currency.get');
+        Route::post('setting/currency-store',[CurrencyController::class,'store'])->name('currency.store');
+        Route::post('setting/currency-delete',[CurrencyController::class,'destroy'])->name('currency.delete');
+        Route::post('setting/currency-update',[CurrencyController::class,'update'])->name('currency.update');
 
 
 });

@@ -48,6 +48,7 @@
                 multipleImg="{{ $row->p_image }}"
                 p_feature="{{ $row->feature }}"
                 hot_deal="{{ $row->hot_deal }}"
+                show_on_slider="{{ $row->slide_product }}"
                 id="editProduct" class="d-inline-block">
                 <span class="p-2 brand-color me-3">
                     <i class="fa-regular fa-pen-to-square"></i>

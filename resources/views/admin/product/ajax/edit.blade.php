@@ -134,8 +134,7 @@
                           <div class="row">
                               <div class="col-md-12">
                                   <label>Main thumbnail</label>
-                                  <input type="file" name="thumbnail" class="dropify">
-                                  Curent images <br> <img src="" id="mainThumb" style="height: 80px;width:80px">
+                                  <input type="file" name="thumbnail" class="dropify" id="product_image">
                               </div>
                           </div>
                           <div class="row mt-3">
@@ -157,6 +156,10 @@
                                   <label>Hot Deal</label>
                                   <input type="checkbox" name="hot_deal" id="hot_deal" class="ml-2">
                               </div>
+                              <div class="col-md-4">
+                                <label>Show On Slider</label>
+                                <input type="checkbox" name="show_on_slider" id="show_on_slider" class="ml-2">
+                            </div>
                           </div>
                       </div>
                   </div>

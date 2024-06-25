@@ -80,6 +80,7 @@ class ProductController extends Controller
         $data->p_desc = $request->input('description');
         $data->feature = $request->input('feature_p');
         $data->hot_deal = $request->input('hot_deal');
+        $data->slide_product = $request->input('show_on_slider');
         $data->admin_id = '2';
 
         $folder ='product/'. Carbon::now()->year . '/' . Carbon::now()->month . '/' . Carbon::now()->day;
@@ -202,6 +203,7 @@ class ProductController extends Controller
         $data->p_desc = $request->input('description');
         $data->feature = $request->input('feature_p');
         $data->hot_deal = $request->input('hot_deal');
+        $data->slide_product = $request->input('show_on_slider');
         $data->admin_id = '2';
 
         $folder ='product/'.Carbon::now()->year . '/' . Carbon::now()->month . '/' . Carbon::now()->day;

@@ -11,18 +11,48 @@ class AddToCartController extends Controller
     public function Add_To_Cart(Request $request)
     {
         $product_id = $request->input('product_id');
-        $cart = [
-            $product_id=[],
+        $quantity = $request->input('quantity');
+        $price = $request->input('price');
+
+        $product = product::findOrFail($product_id);
+        $cart = session()->get('cart');
+
+        if (!$cart) {
+            $cart = [
+                $product->id=>[
+                    'image'=>$product->thumbnail,
+                    'name'=>$product->p_title,
+                    'price'=>$price,
+                    'qty'=>$quantity,
+                ]
+            ];
+            session()->put('cart',$cart);
+            return true;
+        }
+
+        if (isset($cart[$product->id])) {
+            $cart[$product->id]['qty']++;
+            session()->put('cart',$cart);
+            return true;
+        }
+
+        $cart[$product->id]=[
+            'image'=>$product->thumbnail,
+            'name'=>$product->p_title,
+            'price'=>$price,
+            'qty'=>$quantity,
         ];
         session()->put('cart',$cart);
+        return true;
+
+
+
 
     }
 
     public function loadCart(Request $request)
     {
-        $product_id = session()->get('cart');
-        $cart_iteam = product::where('id',$product_id)->get();
-        return view('user.layout.cart_header')->with('cart_iteam',$cart_iteam);
+        return view('user.layout.cart_header');
 
     }
 }

@@ -23,3 +23,13 @@
 <!-- Li's Trending Product | Home V2 Area End Here -->
 
 @endsection
+@section('script')
+<script>
+    $(document).ready(function(){
+        let slide = $('#slide_img').attr('data-img');
+        let s_thumb_sourch = "{{ asset('storage/') }}"+slide;
+        $('.bg-4').css('background-image',url(+s_thumb_sourch+));
+        $('.bg-4').css('background-size','100px 100px');
+    })
+</script>
+@endsection

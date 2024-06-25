@@ -36,6 +36,7 @@ return new class extends Migration
             $table->longText('p_image')->nullable();
             $table->string('feature')->nullable();
             $table->string('hot_deal')->nullable();
+            $table->string('slide_product')->nullable();
             $table->string('product_count')->nullable();
             $table->string('admin_id');
             $table->enum('status',['enable','disable'])->default('enable');

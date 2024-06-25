@@ -41,4 +41,6 @@ Route::get('/product/{slug}',[View_Product::class,'index'])->name('view.product'
 // Add To Cart
 Route::get('/ad-to-cart',[AddToCartController::class,'Add_To_Cart'])->name('AddToCart');
 Route::get('/load_cart',[AddToCartController::class,'loadCart'])->name('loadCart');
+/*view full cart*/
+//Route::get();
 

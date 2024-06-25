@@ -67,7 +67,7 @@
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
                                                     <li class="add-cart active">
-                                                        <a id="addToCart" pro_id="{{ $row->id }}">Add to cart</a>
+                                                        <a id="addToCart" pro_id="{{ $row->id }}" quantity="1" price="{{ $row->p_discount_price }}">Add to cart</a>
                                                     </li>
 
                                                     <li>

@@ -148,6 +148,10 @@
                                 <label>Hot Deal</label>
                                 <input type="checkbox" name="hot_deal" class="ml-2">
                             </div>
+                            <div class="col-md-4 mt-3">
+                                <label>Show On Slider</label>
+                                <input type="checkbox" name="show_on_slider" class="ml-2">
+                            </div>
 
                         </div>
 

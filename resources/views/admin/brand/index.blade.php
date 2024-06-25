@@ -122,11 +122,25 @@
                 let brandLogo = $(this).attr('brandLogo');
                 let title = $(this).attr('title');
 
-                let logo_images ="{{ asset('storage') }}/"+ brandLogo;
+                //let logo_images ="{{ asset('storage') }}/"+ brandLogo;
 
                 $('#brandId').val(id);
-                $('#editBlogo').attr('src',logo_images);
+
                 $('#Btitle').val(title);
+
+                // dropify
+                var _newImageLink = "{{ asset('storage') }}/"+ brandLogo;;
+                var drEvent = $('#Brandlogo').dropify(
+                {
+                    defaultFile: _newImageLink
+                });
+                drEvent = drEvent.data('dropify');
+                drEvent.resetPreview();
+                drEvent.clearElement();
+                drEvent.settings.defaultFile = _newImageLink;
+                drEvent.destroy();
+                drEvent.init();
+
 
 
                 $('#editModal').modal('show');
